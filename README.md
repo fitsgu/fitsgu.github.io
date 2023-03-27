@@ -1,1 +1,0 @@
-# fitsgu.github.io
