@@ -9,37 +9,35 @@ var blankID;
 var tunrs = 0;
 
 var imgOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-blankID = imgOrder.indexOf("9");
+for (let i = imgOrder.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [imgOrder[i], imgOrder[j]] = [imgOrder[j], imgOrder[i]];
+}
 
 //Begin
 window.onload = function () {
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < columns; c++) {
-      let tile = document.createElement("img");
-      let id = imgOrder.shift();
-      tile.id = id;
-      tile.src = "/assets/img/test/img-" + id + ".png";
-      tile.className = "item";
+  
+  imgOrder.map((values) => {
+    let tile = document.createElement("img");
+    let id = values;
+    tile.id = id;
+    tile.src = "/assets/img/test/img-" + id + ".png";
+    tile.className = "item";
 
-      tile.addEventListener("dragstart", dragStart);
-      tile.addEventListener("dragover", dragOver);
-      tile.addEventListener("dragenter", dragEnter);
-      tile.addEventListener("dragleave", dragLeave);
-      tile.addEventListener("drop", dragDrop);
-      tile.addEventListener("dragend", dragEnd);
-      tile.addEventListener("mouseenter", mouseEnter);
+    tile.addEventListener("dragstart", dragStart);
+    tile.addEventListener("dragover", dragOver);
+    tile.addEventListener("dragenter", dragEnter);
+    tile.addEventListener("dragleave", dragLeave);
+    tile.addEventListener("drop", dragDrop);
+    tile.addEventListener("dragend", dragEnd);
+    tile.addEventListener("mouseenter", mouseEnter);
 
-      document.getElementById("board").append(tile);
-    }
-  }
+    document.getElementById("board").append(tile);
+  });
 };
 
 const mouseEnter = (e) => {
   current = e.target;
-  // current.removeEventListener("dragstart", dragStart);
-  // current.removeEventListener("dragend", dragEnd);
-  // current.removeEventListener("dragover", dragOver);
-  let id = current.id;
 };
 
 const dragStart = (e) => {
@@ -57,11 +55,43 @@ const dragDrop = (e) => {
   blank = e.target;
 };
 const dragEnd = () => {
-  let temp_src = current.src;
-  current.src = blank.src;
-  blank.src = temp_src;
 
-  let temp_id = current.id;
-  current.id = blank.id;
-  blank.id = temp_id;
+  if(!blank.src.includes("img-9.png")) return;
+
+  if (isAdjacent() == true ) {
+
+    [current.src, blank.src] = [blank.src, current.src];
+    [current.id, blank.id] = [blank.id, current.id];
+    [imgOrder[currentID], imgOrder[blankID]] = [imgOrder[blankID], imgOrder[currentID]];
+
+    if(isCorrect() == true){
+      alert("Correct!")
+    }
+  }
 };
+
+const isAdjacent = () => {
+
+  blankID = imgOrder.indexOf("9");
+
+  let r2 = Math.floor(blankID / 3);
+  let c2 = blankID - 3 * r2;
+ 
+  let r = Math.floor(currentID / 3);
+  let c = currentID - 3 * r;
+
+  let moveLeft = r == r2 && c2 == c-1;
+  let moveRight = r == r2 && c2 == c+1;
+  let moveUp = c == c2 && r2 == r-1;
+  let moveDown = c == c2 && r2 == r+1;
+
+  return moveLeft || moveRight || moveUp || moveDown;
+};
+
+const isCorrect = () => {
+  let temp = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  for (let i = 0;i<9;i++) if(temp[i] != imgOrder[i]) return false;
+  return true;
+}
+
+
