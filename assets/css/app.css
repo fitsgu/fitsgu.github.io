@@ -1,0 +1,21 @@
+body {
+}
+.board{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#board{
+    width: 21rem;
+    height: 21rem;
+    border: 2px solid black;
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;   
+}
+#board img{
+    width: 6.9rem;
+    height: 6.9rem;
+    border: 1px solid white;
+}
+
