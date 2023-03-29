@@ -127,13 +127,13 @@ body {
 }
 
 .left {
-  width: 10rem;
+  width: 7rem;
   height: 28rem;
 }
 .right {
   display: flex;
-  width: 10rem;
-  height: 28rem;
+  width: 7rem;
+  height: 32rem;
 }
 .container-time {
   width: 100%;
@@ -160,12 +160,14 @@ body {
 .container-time h3 {
   font-family: "Delicious Handrawn", cursive;
   color: #FAEAB1;
-  font-size: 3rem;
+  font-size: 2rem;
   margin: 0;
   padding: 0;
 }
 #timer {
   font-family: "Delicious Handrawn", cursive;
   color: #FAEAB1;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
