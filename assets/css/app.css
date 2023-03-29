@@ -14,14 +14,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28rem;
-  height: 28rem;
+  max-width: 28rem;
+  max-height: 28rem;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 10px;
 }
 #board {
-  width: 28rem;
-  height: 28rem;
+  max-width: 100%;
+  max-height: 100%;
   border: 2px solid #ecf2ff;
   display: flex;
   flex-wrap: wrap;
@@ -93,28 +93,11 @@ body {
   font-size: 3.8rem;
 }
 
-@font-palette-values --Grays {
-  font-family: Rocher;
-  base-palette: 9;
-}
-
-@font-palette-values --Purples {
-  font-family: Rocher;
-  base-palette: 6;
-}
-
 @font-palette-values --Mint {
   font-family: Rocher;
   base-palette: 7;
 }
 
-.grays {
-  font-palette: --Grays;
-}
-
-.purples {
-  font-palette: --Purples;
-}
 
 .mint {
   font-palette: --Red;
@@ -136,7 +119,7 @@ body {
   height: 32rem;
 }
 .container-time {
-  width: 100%;
+  width: 7rem;
   height: 10rem;
   display: flex;
   align-items: center;
@@ -159,15 +142,43 @@ body {
 }
 .container-time h3 {
   font-family: "Delicious Handrawn", cursive;
-  color: #FAEAB1;
+  color: #faeab1;
   font-size: 2rem;
   margin: 0;
   padding: 0;
 }
 #timer {
   font-family: "Delicious Handrawn", cursive;
-  color: #FAEAB1;
+  color: #faeab1;
   font-size: 1.5rem;
   margin: 0;
   padding: 0;
+}
+@media screen and (max-width: 320px) {
+  #timer {
+    font-size: 0.8rem;
+  }
+  .container-time h3 {
+    font-size: 0.8rem;
+  }
+  .right .left{
+    width: 3rem;
+  }
+}
+.modal-body{
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+.modal-body div{
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.modal-footer{
+ 
 }

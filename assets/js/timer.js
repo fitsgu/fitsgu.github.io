@@ -74,24 +74,12 @@ finished = ()=>{
 	container.setAttribute(timerOnEndMsg, 'true');
 	if (timerEnd == '' || timerEnd == null) {
 		container.textContent = "timer-end";
+    $("#finish").modal("show");
 	} else {
 		container.textContent = timerEnd;
 	}
 }
 
-counter = setInterval(()=>{
-
-  if (h == 0 && m == 0 && s == 0) {
-    clearInterval(counter, finished());
-  }
-
-  if (s >= 0) {
-    timer(s,m,h);
-    hoursSpan.textContent   = checkValue(h);
-    minutesSpan.textContent = checkValue(m);
-    secondsSpan.textContent = checkValue(s);
-  }
-}, oneSec);
 
 let children = [minutesSpan, separator2, secondsSpan];
 
