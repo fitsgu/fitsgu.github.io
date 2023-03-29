@@ -17,22 +17,36 @@
   </head>
   <body>
     <audio id="bg-music" autoplay>
-      <source src="https://raw.githubusercontent.com/fitsgu/fitsgu.github.io/blob/main/assets/bg.mp3" />
+      <source src="./assets/bg.mp3" />
     </audio>
-    <div class="title text-center"></div>
-    <div class="content">
-      <div class="board align-items-center">
-        <div id="board"></div>
+    <div class="title text-center">
+      <div class="mint">PUZZLE</div>
+    </div>
+    <div class="container">
+      <div class="left"></div>
+      <div class="content">
+        <div class="board align-items-center">
+          <div id="board"></div>
+        </div>
+        <div class="footer">
+          <div class="logo">
+            <img src="./assets/img/logo/logo.jpg" alt="" />
+          </div>
+          <div class="person">
+            <div class="name">Puzzle Game</div>
+            <div class="author">By Phan Thanh Thang</div>
+          </div>
+          <div class="turn">Turns: <span id="turn">0</span></div>
+        </div>
       </div>
-      <div class="footer">
-        <div class="logo">
-          <img src="./assets/img/logo/logo.jpg" alt="" />
+      <div class="right">
+        <div class="container-time">
+          <div class="bg-time">
+            <img src="./assets/img/wood2.png" alt="">
+          </div>
+          <h3>Time</h3>
+          <div id="timer" data-hours="0" data-minutes="5" data-seconds="20"></div>
         </div>
-        <div class="person">
-          <div class="name">Puzzle Game</div>
-          <div class="author">By Phan Thanh Thang</div>
-        </div>
-        <div class="turn">Turns: <span id="turn">0</span></div>
       </div>
     </div>
   </body>
@@ -41,4 +55,5 @@
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
     crossorigin="anonymous"
   ></script>
+  <script src="./assets/js/timer.js"></script>
 </html>

@@ -22,7 +22,7 @@ window.onload = function () {
     let tile = document.createElement("img");
     let id = values;
     tile.id = id;
-    tile.src = "./assets/img/test/img-" + id + ".png";
+    tile.src = "./assets/img/animal/img-" + id + ".png";
     tile.className = "item";
 
     tile.addEventListener("dragstart", dragStart);
