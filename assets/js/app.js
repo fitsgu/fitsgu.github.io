@@ -8,6 +8,7 @@ var blankID;
 
 var tunrs = 0;
 
+
 var imgOrder = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 for (let i = imgOrder.length - 1; i > 0; i--) {
   const j = Math.floor(Math.random() * (i + 1));
@@ -64,6 +65,10 @@ const dragEnd = () => {
     [current.id, blank.id] = [blank.id, current.id];
     [imgOrder[currentID], imgOrder[blankID]] = [imgOrder[blankID], imgOrder[currentID]];
 
+    tunrs = tunrs + 1;
+    
+    document.getElementById("turn").innerText = tunrs;
+
     if(isCorrect() == true){
       alert("Correct!")
     }
@@ -86,6 +91,8 @@ const isAdjacent = () => {
   let moveDown = c == c2 && r2 == r+1;
 
   return moveLeft || moveRight || moveUp || moveDown;
+
+
 };
 
 const isCorrect = () => {
