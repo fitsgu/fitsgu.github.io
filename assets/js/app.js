@@ -32,6 +32,7 @@ window.onload = function () {
     tile.addEventListener("drop", dragDrop);
     tile.addEventListener("dragend", dragEnd);
     tile.addEventListener("mouseenter", mouseEnter);
+    tile.addEventListener("click", mouseClick);
 
     document.getElementById("board").append(tile);
   });
@@ -39,8 +40,26 @@ window.onload = function () {
 
 const mouseEnter = (e) => {
   current = e.target;
+  currentID = imgOrder.indexOf(current.id);
 };
 
+const mouseClick = (e) =>{
+  blank = document.getElementById("9");
+  if (isAdjacent() == true ) {
+
+    [current.src, blank.src] = [blank.src, current.src];
+    [current.id, blank.id] = [blank.id, current.id];
+    [imgOrder[currentID], imgOrder[blankID]] = [imgOrder[blankID], imgOrder[currentID]];
+
+    tunrs = tunrs + 1;
+    
+    document.getElementById("turn").innerText = tunrs;
+
+    if(isCorrect() == true){
+      alert("Correct!")
+    }
+  }
+}
 const dragStart = (e) => {
   current = e.target;
   currentID = imgOrder.indexOf(current.id);
